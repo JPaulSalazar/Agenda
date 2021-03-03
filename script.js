@@ -28,7 +28,7 @@ form.addEventListener("submit", (e) => {
     "email": `${form.elements[1].value}`,
     "fullName": `${form.elements[0].value}`,
     };
-    crearPersona(newPerson);
+    createPerson(newPerson);
     e.target.reset()
   });
 
@@ -73,7 +73,6 @@ fetch(apiUrl, {
   .then((people) => {
     const htmlListItems = getPeopleHtmlList(people);
     htmlListElement.innerHTML = htmlListItems;
-    alert('felicidades la persona se agrego satisfactoriamente')
   })
   .catch((err) => {
     console.error(err);
@@ -192,7 +191,7 @@ Clona tu propio API: https://mockapi.io/clone/5d2cd8678c90070014972943
     4.6. Limpiar el formulario
 
 */
-function createperson(object){
+function createPerson(object){
     fetch(apiUrl, {
     method: "POST",
     headers: {
@@ -201,8 +200,9 @@ function createperson(object){
     body: JSON.stringify(object),
 }).then((response) => response.json())
 .then((data) => {
-    addnewperson(data)
-    const htmlNewContent = addnewperson(data);
+    addperson(data)
+    const htmlNewContent = addperson(data);
     htmlListElement.innerHTML += htmlNewContent;
+    alert('felicidades la persona se agrego satisfactoriamente');
 });
 }
