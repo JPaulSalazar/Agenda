@@ -30,7 +30,6 @@ form.addEventListener("submit", (e) => {
     };
     crearPersona(newPerson);
     e.target.reset()
-    alert('felicidades la persona se agrego satisfactoriamente')
   });
 
 // FUNCIONES GLOBALES
@@ -74,6 +73,7 @@ fetch(apiUrl, {
   .then((people) => {
     const htmlListItems = getPeopleHtmlList(people);
     htmlListElement.innerHTML = htmlListItems;
+    alert('felicidades la persona se agrego satisfactoriamente')
   })
   .catch((err) => {
     console.error(err);
